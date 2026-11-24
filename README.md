@@ -15,7 +15,24 @@ https://raw.githubusercontent.com/xyu3032-commits/DroneFlamesSiteMods/main/site_
 作者的上架申请（issue）审核通过后，把作者 catalog 里对应的**条目**追加进 `site_catalog.json` 的 `mods` 数组，提交推送即生效（raw 有约 5 分钟 CDN 缓存）。
 
 - 条目字段与商店 catalog 同构：`id` / `name` / `version` / `author` / `description` / `category` / `download_url` / `sha256` / `size` / `icon`。
-- 可选字段：`source`（作者源 id，惯例为 `<mod id>_source`；不写时官网按官网目录自身处理）、`lang`（语言代码；不写时官网按下载文件名推断）。
+- 可选字段：`source`（作者源 id，惯例为 `<mod id>_source`；不写时官网按官网目录自身处理）、`lang`（语言代码；不写时官网按下载文件名推断）、`game_version`（适配的游戏版本线，取值 `"0.33"` 或 `"0.41"`；官网社区库按它显示「适配 x.xx」徽章并支持按版本筛选；**不写时按 `"0.33"` 对待**——现行生态的存量条目都是 0.33，新上架申请里作者必填、站长照抄 issue 正文的「适配版本」一行即可）。
+- 示例条目：
+
+```json
+{
+	"id": "star_fleet",
+	"name": "星际舰队",
+	"version": "1.0.0",
+	"author": "some-author",
+	"description": "一句话简介",
+	"category": "星际舰队",
+	"download_url": "https://raw.githubusercontent.com/some-author/star-fleet/main/files/star_fleet.dfmod",
+	"game_version": "0.41",
+	"sha256": "<与 .dfmod 实物一致的 SHA-256>",
+	"size": 12345678,
+	"icon": ""
+}
+```
 - `download_url` 必须用 `raw.githubusercontent.com` 直链；`sha256` 与 `size` 必须与 .dfmod 实物一致（游戏下载后会双重校验，对不上拒装）。
 - 此时条目在官网社区库带「官网首发 · 仅官网」徽标，**还不在游戏里**。
 
@@ -33,4 +50,4 @@ https://raw.githubusercontent.com/xyu3032-commits/DroneFlamesSiteMods/main/site_
 
 ## English summary
 
-This repo hosts `site_catalog.json`, the website-side community catalog for the DroneFlames mod portal (stage one of a two-stage listing flow). Adding an entry here lists the mod on the website's Community section only ("website first"); adding the author's source to `DroneFlamesModStore/index.json` afterwards is the separate stage two that puts the mod into the in-game store.
+This repo hosts `site_catalog.json`, the website-side community catalog for the DroneFlames mod portal (stage one of a two-stage listing flow). Adding an entry here lists the mod on the website's Community section only ("website first"); adding the author's source to `DroneFlamesModStore/index.json` afterwards is the separate stage two that puts the mod into the in-game store. Entries may carry a `game_version` field (`"0.33"` or `"0.41"`) naming the game build line the mod targets; the website badges and filters community entries by it, and entries without the field count as `"0.33"`.

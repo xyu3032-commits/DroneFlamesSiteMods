@@ -1,4 +1,20 @@
 {
 	"catalog_version": 1,
-	"mods": []
+	"mods": [
+		{
+			"id": "hello_mod",
+			"name": "你好，世界（示例 mod）",
+			"version": "1.0.0",
+			"author": "xyu3032-commits",
+			"description": "示例条目：站长用教程示例 mod 走通上架全链的打样——最小示例 mod，开局打招呼并统计帧数。非正式作品，仅用于展示上架流程与社区库版式。",
+			"category": "示例",
+			"download_url": "https://raw.githubusercontent.com/xyu3032-commits/DroneFlamesSiteMods/main/files/hello_mod.dfmod",
+			"game_version": "0.33",
+			"sha256": "a0ad47aaf8d6f1d8c38f35c7c39d6dee4fda6bc46c62e66cd293b1829a7c0dbf",
+			"size": 834,
+			"icon": "",
+			"source": "hello_mod_source",
+			"lang": "zh"
+		}
+	]
 }

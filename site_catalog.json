@@ -14,7 +14,8 @@
 			"size": 834,
 			"icon": "",
 			"source": "hello_mod_source",
-			"lang": "zh"
+			"lang": "zh",
+			"mtype": "other"
 		}
 	]
 }
